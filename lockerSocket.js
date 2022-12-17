@@ -1,8 +1,8 @@
 // Importing the required modules
-const WebSocketServer = require('ws');
+const ws = require('ws')
 
 // Creating a new websocket server
-const wss = new WebSocketServer.Server({ port: 8080 })
+const wss = new ws.WebSocketServer({ port: 8080 });
 
 // Creating connection using websocket
 wss.on("connection", ws => {
