@@ -32,8 +32,7 @@ wss.on("connection", ws => {
     ws.on("message", data => {
         // Atualizar o status das fechaduras.
         console.log(`Client has sent us: ${data}`)
-        this.lockerStatus = JSON.parse(data);
-        ws.send(JSON.stringify(lockerStatus));
+        lockerStatus = JSON.parse(data);
     });
 
     // handling what to do when clients disconnects from server
@@ -45,6 +44,6 @@ wss.on("connection", ws => {
     ws.onerror = function () {
         console.log("Some Error occurred")
     }
-
 });
+
 console.log("The WebSocket server is running on port 8080");
