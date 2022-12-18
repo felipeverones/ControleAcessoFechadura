@@ -4,6 +4,7 @@ const ws = require('ws')
 // Creating a new websocket server
 const wss = new ws.WebSocketServer({ port: 8080 });
 
+let clients = []
 let lockerStatus = [
     {
         'idLocker': '1',
@@ -33,6 +34,7 @@ wss.on("connection", ws => {
         // Atualizar o status das fechaduras.
         console.log(`Client has sent us: ${data}`)
         lockerStatus = JSON.parse(data);
+        wss.clients.forEach(client => client.send(JSON.stringify(lockerStatus)));
     });
 
     // handling what to do when clients disconnects from server
