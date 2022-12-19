@@ -1,11 +1,11 @@
 
 const loginData = [
     {
-        "userID": 1,
+        "userId": 1,
         "password": "123"  
     },
     {
-        "userID": 2,
+        "userId": 2,
         "password": "456"  
     }
 ]
